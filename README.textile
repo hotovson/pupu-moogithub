@@ -8,7 +8,7 @@ Pupu is a plugin system for media stuff like JS & CSS frameworks, plugins for th
 
 h1. Installation
 
-* Run @pupu install moogithub@ inside of your application
+* Run @pupu install hotovson/moogithub@ inside of your application
 * Change defaults in /assests/javascripts/initializers/moogithub.js as needed
 
 h1. Usage
