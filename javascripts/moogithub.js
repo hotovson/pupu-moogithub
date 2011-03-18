@@ -29,7 +29,17 @@ MooGitHub = new Class({
 
       onComplete: function(data){
         data.repositories.length < this.options.items ? slug = data.repositories.length : slug = this.options.items;
-        this.repos = data.repositories.reverse().splice(1, slug);
+
+        this.repos = data.repositories.filter(
+          function(item, index){
+            return !item.fork;
+          }).sort(
+          function(a,b){
+            if (b.pushed_at > a.pushed_at) return 1;
+            if (b.pushed_at < a.pushed_at) return -1;
+            return 0;
+          }).splice(0, slug);
+
         ul = new Element('ul');
         this.repos.each(function(repo){
           li = new Element('li');
